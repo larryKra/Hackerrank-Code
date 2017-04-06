@@ -1,0 +1,47 @@
+#include <map>
+#include <set>
+#include <list>
+#include <cmath>
+#include <ctime>
+#include <deque>
+#include <queue>
+#include <stack>
+#include <string>
+#include <bitset>
+#include <cstdio>
+#include <limits>
+#include <vector>
+#include <climits>
+#include <cstring>
+#include <cstdlib>
+#include <fstream>
+#include <numeric>
+#include <sstream>
+#include <iostream>
+#include <algorithm>
+#include <unordered_map>
+
+using namespace std;
+
+
+int main(){
+   long int a[5];
+    for(int m=0;m<5;++m)
+   {
+     cin>>a[m];     
+    }
+    long int sum=0;
+    for(int j=0;j<5;++j)
+        sum+=a[j];
+    long int max=0,min=sum;
+   for(int i=0;i<5;++i)
+   {
+        if(max<=sum-a[i])
+            max=sum-a[i];
+       if(min>=sum-a[i])
+           min=sum-a[i];
+       
+   }
+    cout<<min<<" "<<max<<endl;
+    return 0;
+}

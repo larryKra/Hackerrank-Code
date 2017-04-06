@@ -1,0 +1,24 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include<iomanip>
+#include <algorithm>
+using namespace std;
+
+int main(){
+    string time;
+    int hh,mm,ss;
+    cin>>hh;
+    cin.ignore();
+    cin>>mm;
+    cin.ignore();
+    cin>>ss;
+    cin>>time;
+    if(hh==12&&time=="AM")
+        hh=0;
+    if(hh!=12&&time=="PM")
+        hh+=12;
+    cout<<setfill('0')<<setw(2)<<hh<<":"<<setfill('0')<<setw(2)<<mm<<":"<<setfill('0')<<setw(2)<<ss<<endl;
+    return 0;
+}

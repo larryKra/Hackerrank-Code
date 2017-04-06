@@ -1,3 +1,3 @@
 # Hackerrank-Code
-Some submission in Hackerrank
-Written in cpp
+#Some submission in Hackerrank
+# Written in cpp

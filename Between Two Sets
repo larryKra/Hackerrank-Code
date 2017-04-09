@@ -1,0 +1,94 @@
+/*Copyright Larry Qin*/
+/* 2017 04 09*/
+/* If you have better solution, plz tell me*/
+#include <map>
+#include <set>
+#include <list>
+#include <cmath>
+#include <ctime>
+#include <deque>
+#include <queue>
+#include <stack>
+#include <string>
+#include <bitset>
+#include <cstdio>
+#include <limits>
+#include <vector>
+#include <climits>
+#include <cstring>
+#include <cstdlib>
+#include <fstream>
+#include <numeric>
+#include <sstream>
+#include <iostream>
+#include <algorithm>
+#include <unordered_map>
+
+using namespace std;
+
+int gcd(int n, int m)   //辗转相除求最大公约数
+{
+	if (n <= m)
+	{
+		int temp = m;
+		m = n;
+		n = temp;
+	}
+	if (n%m == 0)
+		return m;
+	else
+		return(gcd(n, n%m));
+
+}
+
+int main() {
+	int n;
+	int m;
+	cin >> n >> m;
+	vector<int> a(n);
+	for (int a_i = 0; a_i < n; a_i++) {
+		cin >> a[a_i];
+	}
+	vector<int> b(m);
+	for (int b_i = 0; b_i < m; b_i++) {
+		cin >> b[b_i];
+	}
+	int fac,mul=a[0];
+	for (int i = 1; i<n; ++i)
+	{
+		fac = gcd(mul, a[i]);
+        mul = (mul / fac)*(a[i] / fac)*fac;
+	}
+	int x=mul;
+	int x0 = mul;
+	int num = 0, count = 2;
+	bool flag = true;
+	while (x<=100)
+	{
+		for (int aa = 0; (aa<m)&&(flag); ++aa)
+		{
+			if ((x <= b[aa]) && (b[aa] % x == 0))
+				flag = true;
+			else if ((x > b[aa]) || (b[aa] % x) != 0)
+			{
+				flag = false;
+				
+			}
+		}
+		if (flag)
+		{
+			++num;
+			x = x0*count;
+			++count;
+		}
+		else
+		{
+			x = x0*count;
+			++count;
+			flag = true;
+		}
+	}
+	cout << num << endl;
+	system("pause");
+	return 0;
+}

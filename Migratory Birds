@@ -1,0 +1,47 @@
+#include<iostream>
+#include<vector>
+
+using namespace std;
+int counttype(vector<int> typenum)
+{
+	int position = 0;
+	int max=0;
+	for(int j=1;j < 5;++j)
+	{
+		if (typenum[j] > max)
+		{
+			max = typenum[j];
+			position = j;
+		}
+		else if (typenum[j] == max)
+		{
+			if (j < position)
+				position = j;
+		}
+		else
+			;
+	}
+
+	return (position+1);
+}
+int main() {
+	int n;
+	cin >> n;
+	vector<int> types(n);
+	for (int types_i = 0; types_i < n; types_i++) {
+		cin >> types[types_i];
+	}
+	vector<int>typenum(5,0);
+	for (int i = 0; i < n; ++i)
+	{
+		++typenum[types[i]-1];
+	}
+
+	int type_name = counttype(typenum);
+
+	cout << type_name << endl;
+	// your code goes here
+	system("pause");
+	return 0;
+}
+

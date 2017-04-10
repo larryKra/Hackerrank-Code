@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int solve(int n, int p){
+    // Complete this function
+    int num = 1;
+    if(p==1)
+        return 0;
+    else{
+	for (int i = 2; i + 1 <= n; i+=2)
+	{
+		if (i == p)
+		{
+			break;
+		}
+		else if (i + 1 == p)
+		{
+			break;
+		}
+		++num;
+	}
+	int total_num = ((n % 2 == 0) ? (n / 2):(n - 1) / 2);
+	return ((num<=(total_num-num)?(num):(total_num-num)));
+    }
+}
+
+int main() {
+    int n;
+    cin >> n;
+    int p;
+    cin >> p;
+    int result = solve(n, p);
+    cout << result << endl;
+    return 0;
+}

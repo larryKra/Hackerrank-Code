@@ -1,0 +1,52 @@
+
+//
+A easy question. Just see it as a pratice for changing int to string in C++.
+//
+#include<string>
+#include<strstream>
+#include<iostream>
+#include<sstream>
+using namespace std;
+
+string solve(int year){
+    // Complete this function
+    string va;
+     strstream ss;
+        ss<<year;
+        string y=ss.str();
+    if(1700<=year&&year<1918)  //Julian system
+    {
+      if(year%4==0)   //leap year
+      {   
+         va="12.09."+y;
+      }
+        else 
+        { 
+             va="13.09."+y;   
+        } 
+    }
+    else if(year==1918) 
+    {
+         va="26.09."+y;     
+    }
+        else if(year>1918&&year<=2700)
+    {
+        if(year%400==0||(year%4==0&&year%100!=0))
+        {  
+             va="12.09."+y;
+        }
+         else 
+         {     
+              va="13.09."+y;  
+         }   
+    }
+    return va;      
+}
+
+int main() {
+    int year;
+    cin >> year;
+    string result = solve(year);
+    cout << result << endl;
+    return 0;
+}

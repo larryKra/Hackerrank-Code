@@ -1,0 +1,37 @@
+//It is a pratice to change string to int
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include<sstream>
+#include<stdlib.h>
+#include<stdio.h>
+#include<cstdlib>
+using namespace std;
+
+int reverse(int day)
+{
+	stringstream ss;
+	ss << day;
+	string day_s = ss.str();
+	reverse(day_s.begin(), day_s.end());
+	int n = atoi(day_s.c_str());
+	return n;
+}
+int main() {
+	/* Enter your code here. Read input from STDIN. Print output to STDOUT */
+     int i, j, k;
+	cin >> i >> j >> k;
+	int num = 0;
+	for (int day = i; day <= j; ++day)
+	{   
+		int dif = fabs(day - reverse(day));
+		if (dif % k == 0)
+			++num;
+	}
+	
+	cout << num << endl;
+	system("pause");
+	return 0;
+}

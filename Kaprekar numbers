@@ -1,0 +1,36 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */  
+    int p,q;
+    cin>>p>>q;
+    bool flag=0;
+    for(long long t=p;t<=q;++t)
+     {
+     if(t==0)
+         cout<<t;
+      else if(t==10||t==100||t==1000||t==10000||t==100000)
+          continue;
+      else
+      {
+       long int n=1;
+          for(long int i=10;i<=t;i*=10)
+              n=i;
+          n*=10;
+          long int s=t*t;
+          if((s%n+s/n)==t)
+          {cout<<t<<" ";
+          flag=1;
+          }
+      }
+        
+    }
+    if(!flag) cout<<"INVALID RANGE"<<endl;
+    return 0;
+}
